@@ -28,6 +28,8 @@ echo "---> Building application from source..."
 
 find /app -name .git -type d -exec rm -rf {} +
 
+chown -R 1001:0 /app/tmp && chmod -R g+rwX /app/tmp
+
 yarn install
 
 bundle config --global frozen 1 \
@@ -35,5 +37,4 @@ bundle config --global frozen 1 \
 
 bundle exec rake assets:precompile
 
-chown -R 1001:0 /app/tmp && chmod -R g+rwX /app/tmp
 # cleanup yarn and other stuff
