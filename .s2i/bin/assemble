@@ -28,7 +28,8 @@ echo "---> Building application from source..."
 
 find /app -name .git -type d -exec rm -rf {} +
 
-chown -R 1001:0 /app/tmp && chmod -R g+rwX /app/tmp
+chgrp -R 0 /app/tmp && chmod -R g+rw /app/tmp
+chgrp -R 0 /app/db && chmod -R g+rw /app/db
 
 yarn install
 
